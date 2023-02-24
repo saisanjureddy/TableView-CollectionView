@@ -26,38 +26,20 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     }
   
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //UIcollectionviewcell * cell = collectionview.de "cell"
-        
         let cell:CollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        
+        //Assigning images and label on the collection view 
         cell.img.image = arrimg[indexPath.row]
         cell.lbl.text = arrlbl[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "detailSegue", sender: nil)
+        //Navigating to collection view controller to show list of images
         let detailVC: DetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
+        //Passing Data to Detail view controller  to show the same image that was selected in the collection view.
         detailVC.detailImg = arrimg[indexPath.row]
         detailVC.detailLbl = arrlbl[indexPath.row]
     }
-    
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//
-//
-//        //MARK: - Allows us to send data
-//        //Check the ID for the segue as "goToCollectionView"
-//        if segue.identifier == "detailSegue",
-//            let collectionVC = segue.destination as? DetailViewController {
-//                //If the segue's destination is Collection View Controller, we can send the data
-//                collectionVC.title = "Detail View"
-//            collectionVC.detailText?.text = "Test"
-//            }
-//        }
-    
 }
 

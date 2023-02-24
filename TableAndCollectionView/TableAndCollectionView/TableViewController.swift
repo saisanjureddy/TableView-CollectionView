@@ -57,26 +57,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //Call the segue
         performSegue(withIdentifier: "goToCollectionViewNew", sender: nil)
         
     }
-    
-    
-    // MARK: - Navigation
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        //MARK: - Allows us to send data
-//        //Check the ID for the segue as "goToCollectionView"
-//        if segue.identifier == "goToCollectionViewNew",
-//            let collectionVC = segue.destination as? CollectionViewController {
-//                //If the segue's destination is Collection View Controller, we can send the data
-//                collectionVC.title = "Collection View"
-//            }
-//        }
-    
-    
-
 }
